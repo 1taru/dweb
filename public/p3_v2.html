@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ingresar </title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+<header class="header">
+    <div class="container logo-nav-container">
+        <a href="#" class="logo">BANCO NFTS</a>
+
+        <nav class="navigation">
+            <ul>
+                <li><a href="p1_v2.html">Principal</a></li>
+                <li><a href="p2_v2.html">Registro</a></li>
+                
+                <li><a href="p4_v2.html">Transferir</a></li>
+                <li><a href="p5_v2.html">Estado de cuenta</a></li>
+                <li><a href="p6_v2.html">Recargar</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+
+<section class="form-register">
+    <h4>Ingrese a su cuenta.</h4>
+    
+    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
+    <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña">
+    
+    <input class="botons" type="submit" value="Ingresar" id="loginBtn">
+  </section>
+
+  <footer class="footer">
+    <div>
+        <p>Derechos reservados a nombre de F&N Asociados.</p>
+    </div>
+ </footer>
+</body>
+
+<script>
+    const loginBtn = document.getElementById('loginBtn');
+  
+    loginBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+  
+      const correo = document.getElementById('correo').value;
+      const password = document.getElementById('password').value;
+  
+      // Realiza una solicitud al servidor para iniciar sesión
+      fetch('/p1_v2', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username: correo, password })
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Obtiene el token de la respuesta del servidor
+          const token = data.token;
+  
+          // Redirecciona al usuario a la página principal con el token en la URL
+          window.location.href = `/p1_v2?token=${token}`;
+        })
+        .catch(error => {
+          console.error('Error al iniciar sesión:', error);
+        });
+    });
+  </script>
+  
+  
+</html>
