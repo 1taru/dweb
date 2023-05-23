@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Estado de cuenta </title>
+    <link rel="stylesheet" href="styles.css">
+
+    
+</head>
+<body>
+    <header class="header">
+        <div class="container logo-nav-container">
+            <a href="#" class="logo">Estado de cuenta</a>
+
+            <nav class="navigation">
+                <ul>
+
+                    <li><a href="p4_v2">Transferir</a></li>
+
+                    <li><a href="p6_v2">Recargar</a></li>
+                    <li><a href="p1_v2">Cerrar sesion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="container-table">
+        <table id="tabla-transferencias">
+            <tr>
+                <th>Movimiento</th>
+                <th>Monto</th>
+                <th>Usuario</th>
+                <th>Glosa</th>
+            </tr>
+            {{#each transferencias}}
+            <tr>
+                <td>{{movimiento}}</td>
+                <td>{{monto}}</td>
+                <td>{{usuario}}</td>
+                <td>{{glosa}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+
+<footer class="footer">
+    <div>
+        <p>Derechos reservados a nombre de F&N Asociados.</p>
+    </div>
+</footer>
+
+</body>
+<script src="app.js"></script>
+
+</html>
