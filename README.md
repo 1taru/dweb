@@ -6,3 +6,4 @@ Para la ejecucion de la carpeta, primero hay que utilizar los siguientes codigos
 5- npm install jsonwebtoken
 6- npm install path
 7- npm install cookie-parser
+8- npm install fs
